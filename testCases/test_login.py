@@ -12,7 +12,7 @@ class Test001Login:
 
     def test_login_page_title(self, setup):
         self.logger.info("************** Test001Login started !! *************")
-        self.logger.info("************** Verifying Login Page Test started !! *************")
+        self.logger.info("************** Verifying Login Page Test started ! *************")
         driver = setup
         driver.get(url=self.base_url)
         title = driver.title
@@ -21,13 +21,13 @@ class Test001Login:
             driver.quit()
             assert True
         else:
-            self.logger.error("************** Verifying Login Page Test Failed !!! *************")
+            self.logger.error("************** Verifying Login Page Test Failed ! *************")
             driver.save_screenshot('Screenshots/test_login_page_title.png')
             driver.quit()
             assert False
 
     def test_login(self, setup):
-        self.logger.info("************** Login Test started !! *************")
+        self.logger.info("************** Login Test started ! *************")
         driver = setup
         driver.get(url=self.base_url)
         lp = LoginPage(driver=driver)
@@ -42,13 +42,13 @@ class Test001Login:
             lp.logout()
             driver.quit()
         else:
-            self.logger.error("************** Login Test Failed !!! *************")
+            self.logger.error("************** Login Test Failed ! *************")
             driver.save_screenshot('Screenshots/test_login.png')
             driver.quit()
             assert False
 
     def test_login_page_title1(self, setup):
-        self.logger.info("************** Verifying Login Page Test1 started !! *************")
+        self.logger.info("************** Verifying Login Page Test1 started ! *************")
         driver = setup
         driver.get(url=self.base_url)
         title = driver.title
@@ -57,13 +57,13 @@ class Test001Login:
             driver.quit()
             assert True
         else:
-            self.logger.error("************** Verifying Login Page Test1 Failed !!! *************")
+            self.logger.error("************** Verifying Login Page Test1 Failed ! *************")
             driver.save_screenshot('Screenshots/test_login_page_title1.png')
             driver.quit()
             assert False
 
     def test_login1(self, setup):
-        self.logger.info("************** Login Test1 started !! *************")
+        self.logger.info("************** Login Test1 started ! *************")
         driver = setup
         driver.get(url=self.base_url)
         lp = LoginPage(driver=driver)
@@ -78,7 +78,7 @@ class Test001Login:
             lp.logout()
             driver.quit()
         else:
-            self.logger.error("************** Login Test1 Failed !!! *************")
+            self.logger.error("************** Login Test1 Failed ! *************")
             driver.save_screenshot('Screenshots/test_login1.png')
             driver.quit()
             assert False
