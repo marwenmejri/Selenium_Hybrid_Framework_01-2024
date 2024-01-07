@@ -1,0 +1,2 @@
+[32mINFO    [0m custom_logger:test_login.py:66 ************** Login Test1 started !! *************
+[1m[31mERROR   [0m custom_logger:test_login.py:81 ************** Login Test1 Failed !!! *************
