@@ -1,86 +1,96 @@
 import time
+import pytest
+
 from pagesObjects.LoginPage import LoginPage
-from utilities.readProperties import get_username, get_password, get_url
-from utilities.custom_logger import LogGen
+from utilities.readProperties import ReadConfig
+from utilities.customLogger import Logger
 
 
 class Test001Login:
-    base_url = get_url()
-    username = get_username()
-    password = get_password()
-    logger = LogGen.sample_logger()
+    baseURL = ReadConfig.get_base_url()
+    username = ReadConfig.get_username()
+    password = ReadConfig.get_password()
+    logger = Logger.sample_logger()
 
-    def test_login_page_title(self, setup):
+    def test_verify_login_page(self, setup):
         self.logger.info("************** Test001Login started !! *************")
         self.logger.info("************** Verifying Login Page Test started !! *************")
         driver = setup
-        driver.get(url=self.base_url)
-        title = driver.title
-        if title == 'Your store. Login':
+        driver.get(url=self.baseURL)
+        # Act
+        actual_title = driver.title
+        # Assert
+        if actual_title == "Your store. Login":
             self.logger.info("************** Verifying Login Page Test Passed *************")
+            # Cleanup
             driver.quit()
             assert True
         else:
             self.logger.error("************** Verifying Login Page Test Failed !!! *************")
-            driver.save_screenshot('Screenshots/test_login_page_title.png')
+            driver.save_screenshot(filename='Screenshots/verify_login_page.png')
+            # Cleanup
             driver.quit()
             assert False
 
-    def test_login(self, setup):
+    def test_login_page(self, setup):
         self.logger.info("************** Login Test started !! *************")
         driver = setup
-        driver.get(url=self.base_url)
+        driver.get(url=self.baseURL)
         lp = LoginPage(driver=driver)
         lp.set_username(username=self.username)
+        time.sleep(2)
         lp.set_password(password=self.password)
+        time.sleep(2)
         lp.login()
-        title = driver.title
-        if title == 'Dashboard / nopCommerce administration':
+        time.sleep(2)
+        if driver.title == "Dashboard / nopCommerce administration":
             self.logger.info("************** Login Test Passed *************")
             assert True
-            time.sleep(2)
             lp.logout()
             driver.quit()
         else:
-            self.logger.error("************** Login Test Failed !!! *************")
-            driver.save_screenshot('Screenshots/test_login.png')
+            self.logger.error("************** Login Test Failed ! *************")
+            driver.save_screenshot(filename='Screenshots/login.png')
             driver.quit()
             assert False
 
-    def test_login_page_title1(self, setup):
-        self.logger.info("************** Verifying Login Page Test1 started !! *************")
+    def test_verify_login_page1(self, setup):
+        self.logger.info("************** Verifying Login Page Test 1 started !*************")
         driver = setup
-        driver.get(url=self.base_url)
-        title = driver.title
-        if title == 'Your store. Login':
-            self.logger.info("************** Verifying Login Page Test1 Passed *************")
+        driver.get(url=self.baseURL)
+        # Act
+        actual_title = driver.title
+        # Assert
+        if actual_title == "Your store. Login":
+            self.logger.info("************** Verifying Login Page Test 1 Passed *************")
+            # Cleanup
             driver.quit()
             assert True
         else:
-            self.logger.error("************** Verifying Login Page Test1 Failed !!! *************")
-            driver.save_screenshot('Screenshots/test_login_page_title1.png')
+            self.logger.error("************** Verifying Login Page Test 1 Failed ! *************")
+            driver.save_screenshot(filename='Screenshots/verify_login_page.png')
+            # Cleanup
             driver.quit()
             assert False
 
-    def test_login1(self, setup):
-        self.logger.info("************** Login Test1 started !! *************")
+    def test_login_page1(self, setup):
+        self.logger.info("************** Login Test 1 started ! *************")
         driver = setup
-        driver.get(url=self.base_url)
+        driver.get(url=self.baseURL)
         lp = LoginPage(driver=driver)
         lp.set_username(username=self.username)
+        time.sleep(2)
         lp.set_password(password=self.password)
+        time.sleep(2)
         lp.login()
-        title = driver.title
-        if title == 'Dashboard / nopCommerce administration':
-            self.logger.info("************** Login Test1 Passed *************")
+        time.sleep(4)
+        if driver.title == "Dashboard / nopCommerce administration":
+            self.logger.info("************** Login Test 1 Passed *************")
             assert True
-            time.sleep(2)
             lp.logout()
             driver.quit()
         else:
-            self.logger.error("************** Login Test1 Failed !!! *************")
-            driver.save_screenshot('Screenshots/test_login1.png')
+            self.logger.error("************** Login Test 1 Failed !!! *************")
+            driver.save_screenshot(filename='Screenshots/login1.png')
             driver.quit()
             assert False
-
-
