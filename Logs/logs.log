@@ -18,9 +18,3 @@
 01/07/2024 11:21:29 AM | ERROR | ************** Login Test1 Failed !!! ************* | test_login
 01/07/2024 11:28:25 AM | INFO | ************** Test001Login started !! ************* | test_login
 01/07/2024 11:28:25 AM | INFO | ************** Verifying Login Page Test started !! ************* | test_login
-01/07/2024 11:28:26 AM | INFO | ************** Verifying Login Page Test Passed ************* | test_login
-01/07/2024 11:28:39 AM | INFO | ************** Login Test started !! ************* | test_login
-01/07/2024 11:28:41 AM | ERROR | ************** Login Test Failed !!! ************* | test_login
-01/07/2024 11:28:51 AM | INFO | ************** Verifying Login Page Test1 started !! ************* | test_login
-01/07/2024 11:28:52 AM | INFO | ************** Verifying Login Page Test1 Passed ************* | test_login
-01/07/2024 11:29:05 AM | INFO | ************** Login Test1 started !! ************* | test_login
