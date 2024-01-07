@@ -24,4 +24,3 @@
 01/07/2024 11:28:51 AM | INFO | ************** Verifying Login Page Test1 started !! ************* | test_login
 01/07/2024 11:28:52 AM | INFO | ************** Verifying Login Page Test1 Passed ************* | test_login
 01/07/2024 11:29:05 AM | INFO | ************** Login Test1 started !! ************* | test_login
-01/07/2024 11:29:06 AM | ERROR | ************** Login Test1 Failed !!! ************* | test_login
